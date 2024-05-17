@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import TodoItem from "./TodoItem";
-import TodoForm from "./TodoForm";
+import TodoItem from "../TodoItem/TodoItem";
+import TodoForm from "../TodoForm/TodoForm";
+import styles from "./TodoList.module.css";
 
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -22,17 +23,16 @@ export default function TodoList() {
     setTodos(todos.filter((todo) => todo._id !== todoId));
   };
 
-   const updateTodo = (updatedTodo) => {
-     setTodos(
-       todos.map((todo) => (todo._id === updatedTodo._id ? updatedTodo : todo))
-     );
-   };
-
+  const updateTodo = (updatedTodo) => {
+    setTodos(
+      todos.map((todo) => (todo._id === updatedTodo._id ? updatedTodo : todo))
+    );
+  };
 
   return (
     <>
       <TodoForm addTodo={addTodo} />
-      <div className="todos">
+      <div className={styles.todos}>
         {todos.length > 0 &&
           todos.map((todo) => (
             <TodoItem

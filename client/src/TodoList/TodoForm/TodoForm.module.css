@@ -1,0 +1,32 @@
+ .form {
+     display: flex;
+     gap: 0.5rem;
+     width: 50%;
+     margin: 1rem auto;
+ }
+
+ .formInput {
+     flex: 1;
+     padding: 0.5rem 0.75rem;
+     border-radius: 0.25rem;
+     border: none;
+     outline: none;
+
+     &:focus,
+     &:hover {
+         background-color: rgba(255, 255, 255, 0.85);
+     }
+ }
+
+ .formButton {
+     border: none;
+     background-color: rgba(113, 0, 212, 0.7);
+     cursor: pointer;
+     color: white;
+     border-radius: 0.25rem;
+     transition: all 0.2s;
+
+     &:hover {
+         background-color: rgba(95, 0, 179, 0.5);
+     }
+ }

@@ -49,7 +49,7 @@ const updateStatusNote = async (req, res) => {
     const { status } = req.body;
     const updatedTodo = await collection.updateOne(
       { _id },
-      { $set: { status: !status } }
+      { $set: { status: status } }
     );
     res.status(200).json(updatedTodo);
   } catch (error) {

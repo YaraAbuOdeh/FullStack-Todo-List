@@ -1,11 +1,11 @@
 import { useState } from "react";
-
+import styles from "./TodoForm.module.css"
 export default function TodoForm({ addTodo }) {
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (content.length > 3) {
+    if (content.length > 0) {
       const res = await fetch("/api/todos", {
         method: "POST",
         body: JSON.stringify({ todo: content }),
@@ -21,16 +21,18 @@ export default function TodoForm({ addTodo }) {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <input
-        className="form_input"
+        className={styles.formInput}
         type="text"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Enter a new todo..."
         required
       />
-      <button type="submit">Create Todo</button>
+      <button className={styles.formButton} type="submit">
+        Create Todo
+      </button>
     </form>
   );
 }
